@@ -5,9 +5,9 @@ part 'dummy_model.g.dart';
 
 @JsonSerializable()
 class  DummyModel {
-  final List<DummyItemModel>? meals;
+  final List<DummyItemModel>? teams;
 
-  DummyModel(this.meals);
+  DummyModel(this.teams);
 
   factory DummyModel.fromJson(Map<String, dynamic> json) => 
     _$DummyModelFromJson(json);

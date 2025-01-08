@@ -3,8 +3,8 @@ import 'package:based_project_list_club_sepak_bola/features/dummy/model/dummy_mo
 abstract class DummyItemState {}
 
 class DummyItemStateSuccess extends DummyItemState {
-  final DummyModel? dummyItemModel;
-  DummyItemStateSuccess(this.dummyItemModel);
+  final bool? isFavorite;
+  DummyItemStateSuccess(this.isFavorite);
 }
 
 class DummyItemStateLoading extends DummyItemState {}

@@ -21,7 +21,7 @@ class AppRoute {
     GetPage(
       name: detailScreen,
       page: () => const DummyItemScreen(),
-      // binding: DummyItemBinding()
+      binding: DummyItemBinding()
     )  
   ];
 }

@@ -10,6 +10,6 @@ class DummyItemBinding extends Bindings {
     // TODO: implement dependencies
     Get.lazyPut(() => DummyItemDatasource(Network.dioClient()));
     Get.lazyPut(() => DummyItemRepository(Get.find()));
-    Get.lazyPut(() => DummyItemController(Get.find()));
+    Get.lazyPut(() => DummyItemController());
   }
 }

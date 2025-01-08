@@ -19,14 +19,25 @@ class _DummyItemScreenState extends State<DummyItemScreen> {
   @override
   void initState() {
     super.initState();
-    _controller.onInit();
+    // _controller.onInit();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBar(),
-      body: _bodyBuilder(),
+      body: _body(),
+      floatingActionButton: Obx(() {
+          return FloatingActionButton(
+            onPressed: () async => _controller.actionOnTapButtonFavorite(),
+            backgroundColor: 
+              _controller.isFavorite.value ? Colors.red : Colors.black,
+            child: const Icon(
+              Icons.favorite,
+              color: Colors.white,
+            ),  
+          );
+        })
     );
   }
 
@@ -41,33 +52,33 @@ class _DummyItemScreenState extends State<DummyItemScreen> {
     );
   }
 
-   Widget _bodyBuilder() {
+  Widget _bodyBuilder() {
     return GetBuilder<DummyItemController>(builder: (controller) {
       final state = controller.state;
+
       if (state is DummyItemStateLoading) {
-        return const Center(child: CircularProgressIndicator());
-      }
-      if (state is DummyItemStateError) {
         return const Center(
-          child: Column(
-            children: [
-              Icon(Icons.error),
-              SizedBox(
-                height: 8,
-              ),
-              Text("ERROR")
-            ],
-          ),
+          child: CircularProgressIndicator(),
         );
       }
-      if (state is DummyItemStateSuccess) {
-        return _body(state.dummyItemModel);
+
+      if (state is DummyItemStateError) {
+        return const Center(
+          child: Text("Error: ("),
+        );
       }
+
+      if (state is DummyItemStateSuccess) {
+        return _body();
+      }
+
       return Container();
     });
   }
 
-  Widget _body(DummyModel? dummyModel) {
+
+
+  Widget _body() {
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,7 +87,7 @@ class _DummyItemScreenState extends State<DummyItemScreen> {
             borderRadius:
                 const BorderRadius.vertical(bottom: Radius.circular(24)),
             child: CachedNetworkImage(
-              imageUrl: dummyModel?.meals?.first.strBadge ??
+              imageUrl: _controller.idDummyItem.strBadge ??
                   AppConst.imageExample,
               width: double.infinity,
               height: 250,
@@ -95,7 +106,7 @@ class _DummyItemScreenState extends State<DummyItemScreen> {
               children: [
                 // Nama Liga
                 Text(
-                  dummyModel?.meals?.first.strTeam ?? "Name Of Meal",
+                  _controller.idDummyItem.strTeam ?? "Name Of Meal",
                   style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -105,7 +116,7 @@ class _DummyItemScreenState extends State<DummyItemScreen> {
                 const SizedBox(height: 8),
                 // Tipe Liga
                 Text(
-                  dummyModel?.meals?.first.strLeague ?? "Type Of Meal",
+                  _controller.idDummyItem.strLeague ?? "Type Of Meal",
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w400,
@@ -116,7 +127,7 @@ class _DummyItemScreenState extends State<DummyItemScreen> {
 
                 // Deskripsi
                 Text(
-                  dummyModel?.meals?.first.strDescriptionEN ?? "Description",
+                  _controller.idDummyItem.strDescriptionEN?? "Description",
                   style: const TextStyle(
                     fontSize: 16,
                     color: Colors.black87,

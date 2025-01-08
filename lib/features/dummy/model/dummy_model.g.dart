@@ -14,5 +14,5 @@ DummyModel _$DummyModelFromJson(Map<String, dynamic> json) => DummyModel(
 
 Map<String, dynamic> _$DummyModelToJson(DummyModel instance) =>
     <String, dynamic>{
-      'teams': instance.meals,
+      'teams': instance.teams,
     };

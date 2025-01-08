@@ -14,7 +14,7 @@ class DummyItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () async =>
-          Get.toNamed(AppRoute.detailScreen, arguments: dummyItemModel?.idTeam),
+          Get.toNamed(AppRoute.detailScreen, arguments: dummyItemModel),
       child: Container(
         width: MediaQuery.sizeOf(context).width,
         height: MediaQuery.sizeOf(context).height / 7,

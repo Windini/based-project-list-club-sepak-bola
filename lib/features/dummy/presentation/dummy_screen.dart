@@ -54,12 +54,12 @@ class _DummyScreenState extends State<DummyScreen> {
             padding: 
               const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
             child: DummyItemWidget(
-              dummyItemModel: listDummy.meals?[index],
+              dummyItemModel: listDummy.teams?[index],
             ),
           );
         },
         itemCount: 
-            _controller.isShowMore.value ? 3 : listDummy.meals?.length ?? 0,
+            _controller.isShowMore.value ? 3 : listDummy.teams?.length ?? 0,
         );
     });
   }
@@ -113,14 +113,14 @@ class _DummyScreenState extends State<DummyScreen> {
             padding: const EdgeInsets.symmetric(vertical: 12),
             alignment: Alignment.center,
             decoration: const BoxDecoration(
-              color: Colors.blue,
+              color: Color.fromARGB(255, 164, 171, 176),
               borderRadius: BorderRadius.all(Radius.circular(8)),
             ),
             child: Text(
               _controller.isShowMore.value ? "Show More" :"Show Less",
               style: const TextStyle(
                 fontSize: 16,
-                color: Colors.black,
+                color: Color.fromARGB(255, 255, 255, 255),
               ),
             ),
           ),

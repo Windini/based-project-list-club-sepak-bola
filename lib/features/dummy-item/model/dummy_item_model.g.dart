@@ -14,14 +14,16 @@ DummyItemModel _$DummyItemModelFromJson(Map<String, dynamic> json) =>
       json['strDescriptionEN'] as String?,
       json['strBadge'] as String?,
       json['strTeam'] as String?,
+      json['strStadium'] as String?,
     );
 
 Map<String, dynamic> _$DummyItemModelToJson(DummyItemModel instance) =>
     <String, dynamic>{
-      'idIeam': instance.idTeam,
+      'idTeam': instance.idTeam,
       'strLeague': instance.strLeague,
       'strTeamAlternate': instance.strTeamAlternate,
       'strDescriptionEN': instance.strDescriptionEN,
       'strBadge': instance.strBadge,
       'strTeam': instance.strTeam,
+      'strStadium': instance.strStadium,
     };
