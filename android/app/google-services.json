@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "916224715832",
+    "project_id": "football-club-app-5ee42",
+    "storage_bucket": "football-club-app-5ee42.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:916224715832:android:da8c684884b31c6cd30acd",
+        "android_client_info": {
+          "package_name": "com.example.based_project_list_club_sepak_bola"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfDoWfBQtJp1eF-kbZVYNNcqBP7-2vdeo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,4 +1,5 @@
 import 'package:based_project_list_club_sepak_bola/components/config/app_const.dart';
+import 'package:based_project_list_club_sepak_bola/components/services/NotificationService.dart';
 import 'package:based_project_list_club_sepak_bola/components/services/database/database.dart';
 import 'package:based_project_list_club_sepak_bola/components/services/database/favorite_clubs.dart';
 import 'package:based_project_list_club_sepak_bola/components/util/state.dart';
@@ -49,8 +50,7 @@ class DummyItemController extends GetxController {
         state = DummyItemStateError();
         } finally {
         update();
-        }
-        
+        }      
   } 
   void actionOnTapButtonFavorite() async {
     if (idDummyItem.idTeam == null || idDummyItem.idTeam!.isEmpty) {
@@ -63,6 +63,14 @@ class DummyItemController extends GetxController {
         await database.favoriteClubs
             .deleteWhere((test) => test.idTeam.equals(idDummyItem.idTeam!));
         isFavorite.value = false;
+
+        NotificationService().showNotification(
+          id: 1,
+          body: "${idDummyItem.strTeam} Berhasil Di Hapus",
+          payload: "now",
+          title: "Club Favorite Berhasil Di Hapus",
+        );
+
         _logger.i("Success delete as favorite");
       } else {
         await database.into(database.favoriteClubs).insert(
@@ -77,6 +85,14 @@ class DummyItemController extends GetxController {
               ),
             );
         isFavorite.value = true;
+
+        NotificationService().showNotification(
+          id: 1,
+          body: "${idDummyItem.strTeam} Berhasil Di Tambahkan",
+          payload: "now",
+          title: "Club Favorite Berhasil Di Tambahkan",
+        );
+        
         _logger.i("Success set as favorite");
       }
     } catch (e) {

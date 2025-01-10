@@ -14,6 +14,7 @@ dependencies:
     
   cached_network_image: ^3.4.1
   flutter_secure_storage: ^9.2.2
+  flutter_local_notifications: ^17.2.2
 
   #  Debugging (Alternative Print)
   logger: ^2.3.0
@@ -30,6 +31,7 @@ dependencies:
   drift_flutter: ^0.1.0
 #
   cupertino_icons: ^1.0.8
+  firebase_messaging: ^15.2.0
 
 dev_dependencies:
   flutter_test:
